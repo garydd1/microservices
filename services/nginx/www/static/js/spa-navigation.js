@@ -1,18 +1,23 @@
 // static/js/spa-navigation.js
 
-// Importa los módulos de cada sección
+// Maybe this is not necessary  because the code is already in the SPA? SOLVE LATER
 import { renderHome, initHome } from './views/home.js';
 // import { renderAbout, initAbout } from './views/about.js';
+import { renderRegister, initRegister } from './views/register.js';
 import { renderLogin, initLogin } from './views/login.js';
-// import { renderJuego, initJuego } from './views/juego.js';
+import { renderGame, initGame } from './views/game.js';
 // import { renderTorneo, initTorneo } from './views/torneo.js';
 
-// Configura las rutas de la aplicación y su lógica asociada
+/**
+ * Container for possible routes of the SPA. Works as a pointer
+ * of functions to render and initialize each section.
+*/
 const routes = {
     "/index": { render: renderHome, init: initHome },
     // "/about": { render: renderAbout, init: initAbout },
+    "/register": { render: renderRegister, init: initRegister },
     "/login": { render: renderLogin, init: initLogin },
-    // "/juego": { render: renderJuego, init: initJuego },
+    "/game": { render: renderGame, init: initGame },
     // "/torneo": { render: renderTorneo, init: initTorneo },
 };
 
@@ -27,7 +32,7 @@ function router() {
         // Ejecuta la lógica de inicialización de la sección
         route.init();
     } else {
-        document.getElementById("main-content").innerHTML = "<h2>404</h2><p>Página no encontrada</p>";
+        document.getElementById("main-content").innerHTML = "<h2>404</h2><p>NOT FOUND 42</p>";
     }
 }
 

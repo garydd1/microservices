@@ -5,7 +5,7 @@ services:
     image: nginx:1.23  # Specify the version for stability
     container_name: api-gateway
     ports:
-      - "80:80"  # Expose port 80 to access the API Gateway from outside
+      - "8000:8000"  # Expose port 80 to access the API Gateway from outside
     volumes:
       - ./services/nginx/nginx.conf:/etc/nginx/nginx.conf 
       - ./services/nginx/www:/usr/share/nginx/html  

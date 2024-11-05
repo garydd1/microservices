@@ -38,7 +38,7 @@ export function initLogin() {
 		const username = document.getElementById("login-username").value;
 		const password = document.getElementById("login-password").value;
 
-		const response = await fetch("/api/login", {
+		const response = await fetch("/api/usr/login", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
