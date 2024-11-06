@@ -49,9 +49,12 @@ export function initLogin() {
 		const data = await response.json();
 
 		if (data.success) {
-			loginResponseMessage.innerText = "Inicio de sesión exitoso";
-			window.location.href = "/index";
+			console.log("Inicio de sesión ok");
+			loginResponseMessage.innerText = "Inicio de sesión exitoswo";
+			location.hash = '/game';
+
 		} else {
+			console.log("Error al iniciar sesión");
 			loginResponseMessage.innerText = data.message;
 		}
 	});
