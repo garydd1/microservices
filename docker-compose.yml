@@ -28,6 +28,30 @@ services:
     networks:
       - app-network  # Internal network only
 
+  websocket:
+    build:
+      context: ./services/websocket  # Ruta del microservicio de WebSocket
+    container_name: websocket
+    volumes:
+      - ./services/websocket:/app  
+    ports:
+      - "8002:8002"  # Exponer el puerto para WebSocket
+    environment:
+      - REDIS_HOST=redis  # Usaremos Redis para gestionar las conexiones de WebSocket
+    depends_on:
+      - redis
+    networks:
+      - app-network
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"  # Expose Redis port to manage WebSocket connections
+    networks:
+      - app-network
+
+
   # game:
   #   build:
   #     context: ./services/game  # Directory for game Dockerfile and code

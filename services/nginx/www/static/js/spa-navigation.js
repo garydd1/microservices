@@ -6,6 +6,7 @@ import { renderHome, initHome } from './views/home.js';
 import { renderRegister, initRegister } from './views/register.js';
 import { renderLogin, initLogin } from './views/login.js';
 import { renderGame, initGame } from './views/game.js';
+import { renderWebsocket, initWebsocket } from './views/websocket.js';
 // import { renderTorneo, initTorneo } from './views/torneo.js';
 
 /**
@@ -18,6 +19,7 @@ const routes = {
     "/register": { render: renderRegister, init: initRegister },
     "/login": { render: renderLogin, init: initLogin },
     "/game": { render: renderGame, init: initGame },
+	"/websocket": { render: renderWebsocket, init: initWebsocket },
     // "/torneo": { render: renderTorneo, init: initTorneo },
 };
 
