@@ -29,7 +29,8 @@ function router() {
 
     if (route) {
         // Carga el contenido en #main-content
-        document.getElementById("main-content").innerHTML = route.render();
+        // document.getElementById("main-content").innerHTML = route.render();
+		route.render();
         
         // Ejecuta la lógica de inicialización de la sección
         route.init();
