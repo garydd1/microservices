@@ -6,8 +6,8 @@ export function renderRegister() {
     <div id="contenido">
         <h2>Register</h2>
         <form id="register-form" method="POST">
-            <label for="register-username">User</label>
-            <input type="text" id="register-username" name="username" autocomplete="username" required>
+		<label for="register-username">User</label>
+		<input type="text" id="register-username" name="username" autocomplete="username" required>
         
             <label for="register-email">email</label>
             <input type="email" id="register-email" name="email" autocomplete="email" required>
