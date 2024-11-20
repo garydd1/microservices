@@ -34,8 +34,8 @@ services:
     container_name: websocket
     volumes:
       - ./services/websocket:/app  
-    ports:
-      - "8002:8002"  # Exponer el puerto para WebSocket
+    # ports:
+    #   - "8002:8002"  # Exponer el puerto para WebSocket
     environment:
       - REDIS_HOST=redis  # Usaremos Redis para gestionar las conexiones de WebSocket
     depends_on:
@@ -43,11 +43,18 @@ services:
     networks:
       - app-network
 
+  tournaments:
+    build:
+      context: ./services/tournaments
+    container_name: tournaments
+    volumes:
+      - ./services/tournaments:/app
+
   redis:
     image: redis:alpine
     container_name: redis
-    ports:
-      - "6379:6379"  # Expose Redis port to manage WebSocket connections
+    # ports:
+    #   - "6379:6379"  # Expose Redis port to manage WebSocket connections
     networks:
       - app-network
 

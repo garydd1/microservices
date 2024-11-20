@@ -1,11 +1,30 @@
 // static/js/views/login.js
 
 export function renderLogin() {
-	fetch('static/html/login.html')
-		.then(response => response.text())
-		.then(data => {
-			document.getElementById("main-content").innerHTML = data;
-		})
+	return `
+	<div id="login-content" class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow-sm" style="max-width: 400px; width: 100%;">
+        <h2 class="card-title text-center mb-4">Iniciar Sesión</h2>
+        <form id="login-form" method="POST">
+            
+            <div class="form-group">
+                <label for="username">Usuario</label>
+                <input type="text" id="login-username" name="username" class="form-control" required placeholder="Ingresa tu usuario">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="login-password" name="password" class="form-control" required placeholder="Ingresa tu contraseña">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
+        </form>
+
+        <div id="login-response-message" class="mt-3 text-danger"></div>
+    </div>
+</div>
+
+	`;
 }
 
 export function initLogin() {
@@ -31,8 +50,10 @@ export function initLogin() {
 
 		if (data.success) {
 			console.log("Inicio de sesión ok");
+			localStorage.setItem("accessToken", data.access);
+        	localStorage.setItem("refreshToken", data.refresh);
 			loginResponseMessage.innerText = "Inicio de sesión exitoswo";
-			location.hash = '/game';
+			// location.hash = '/game';
 
 		} else {
 			console.log("Error al iniciar sesión");

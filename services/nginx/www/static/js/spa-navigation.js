@@ -7,7 +7,7 @@ import { renderRegister, initRegister } from './views/register.js';
 import { renderLogin, initLogin } from './views/login.js';
 import { renderGame, initGame } from './views/game.js';
 import { renderWebsocket, initWebsocket } from './views/websocket.js';
-// import { renderTorneo, initTorneo } from './views/torneo.js';
+import { renderTournament, initTournament } from './views/tournament.js';
 
 /**
  * Container for possible routes of the SPA. Works as a pointer
@@ -20,17 +20,17 @@ const routes = {
     "/login": { render: renderLogin, init: initLogin },
     "/game": { render: renderGame, init: initGame },
 	"/websocket": { render: renderWebsocket, init: initWebsocket },
-    // "/torneo": { render: renderTorneo, init: initTorneo },
+    "/tournament": { render: renderTournament, init: initTournament },
 };
 
 function router() {
     const path = location.hash.slice(1) || "/index";
     const route = routes[path];
+	console.log("path" + path);
 
     if (route) {
         // Carga el contenido en #main-content
-        // document.getElementById("main-content").innerHTML = route.render();
-		route.render();
+        document.getElementById("main-content").innerHTML = route.render();
         
         // Ejecuta la lógica de inicialización de la sección
         route.init();
